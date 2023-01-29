@@ -1,0 +1,46 @@
+EnablePrimaryMouseButtonEvents  (true); -- complete
+local i=0
+function OnEvent(event,arg)
+    if IsKeyLockOn("numlock")then
+        if IsMouseButtonPressed(3)then
+            repeat
+              while (IsMouseButtonPressed(1)) do
+                if (IsMouseButtonPressed(1)and i<50) then
+                    repeat
+                        MoveMouseRelative(0,12)
+                        Sleep(15.0)
+                        i=i+1
+                    until (not IsMouseButtonPressed(1) or i>50) --phase 1
+
+                end
+                if (IsMouseButtonPressed(1)and i<100) then
+                    repeat
+                        MoveMouseRelative(0,14)
+                        Sleep(12.0)
+                        i=i+1
+                    until (not IsMouseButtonPressed(1) or i>100) --phase 2
+
+                end
+                if (IsMouseButtonPressed(1)and i<150) then
+                    repeat
+                        MoveMouseRelative(0,15)
+                        Sleep(11.0)
+                        i=i+1
+                    until (not IsMouseButtonPressed(1) or i>150) --phase 3
+
+                end
+                if (IsMouseButtonPressed(1)and i<200) then
+                    repeat
+                        MoveMouseRelative(0,14)
+                        Sleep(11.0)
+                        i=i+1
+                    until (not IsMouseButtonPressed(1) or i>300) --phase 4
+
+                end
+                i=0
+               end
+            until not IsMouseButtonPressed(3)
+            i=0
+        end
+    end
+end
